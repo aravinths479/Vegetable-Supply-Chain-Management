@@ -1,0 +1,56 @@
+<% if(locals.errors){ %>
+  <% errors.forEach(function(error) { %>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+      <span class="alert-text"><strong>Warning!</strong>
+        <%= error.msg %>
+      </span>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% }); %>
+<% } %>
+
+<% if(success_msg != ''){ %>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+    <span class="alert-text">
+      <%= success_msg %>
+    </span>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% } %>
+
+<% if(error_msg != ''){ %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+    <span class="alert-text">
+      <%= error_msg %>
+    </span>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% } %>
+
+<% if(error != ''){ %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+    <span class="alert-text">
+      <%= error %>
+    </span>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% } %>
+
+
+<style>
+  span{
+    color: white;
+  }
+</style>

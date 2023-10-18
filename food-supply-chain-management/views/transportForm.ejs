@@ -1,0 +1,85 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+
+<br><br><br><br><br>
+
+<div class="container">
+    <h1>Book Transport</h1>
+    <br><br><br>
+    <center>
+        <%- include("./partials/messages"); %>
+    </center>
+
+    <form action="/transport/book" method="POST">
+
+    <div class="row">
+      <div class="col">
+        <div class="input-group input-group-dynamic mb-3">
+            <label for="sourceLocation" class="form-label">Source Location</label>
+            <input type="text" id="sourceLocation" name="sourceLocation" class="form-control" required>
+        </div>
+      </div>
+      <div class="col">
+        <div class="input-group input-group-dynamic mb-3">
+            <label for="destinationLocation" class="form-label">Destination Location</label>
+            <input type="text" id="destinationLocation" name="destinationLocation" class="form-control" required>
+        </div>  
+      </div>
+
+      <div class="w-100"></div>
+
+      <div class="col">
+        <div class="input-group input-group-static my-3">
+            <label for="departureTime">Departure Time</label>
+            <input type="datetime-local" id="departureTime" name="departureTime" class="form-control" required>
+        </div>
+      </div>
+      <div class="col">
+        <div class="input-group input-group-static my-3">
+            <label for="arrivalTime">Arrival Time</label>
+            <input type="datetime-local" id="arrivalTime" name="arrivalTime" class="form-control" required>
+        </div>
+      </div>
+
+      <div class="w-100"></div>
+      
+
+      <div class="col">
+        <div class="input-group input-group-dynamic mb-4">
+            <label class="form-label">Tomato Quantity (in KG)</label>
+            <input type="number" name="tomatoQuantity" class="form-control" required>
+          </div>
+      </div>
+
+      <div class="col">
+        <div class="input-group input-group-static mb-4">
+            <select id="transporterId" name="transporterId" class="form-control" required>
+                <option value="" disabled selected>Select Transporter</option>
+                <% transporters.forEach((transporter) => { %>
+                    <option value="<%= transporter._id %>"><%= transporter.name %></option>
+                <% }); %>
+            </select>
+        </div>
+      </div>
+     
+        <div class="input-group input-group-dynamic">
+            <textarea class="form-control" rows="4" name="notes" placeholder="Additional Notes" spellcheck="false"></textarea>
+          </div>
+        <br>
+        <div class="input-group input-group-dynamic my-4">
+            <button type="submit" class="btn bg-gradient-info">Book Transport</button>
+        </div>
+    </div>
+    </form>
+  </div>
+
+
+<style>
+    h1 {
+      font-size: 40px;
+      font-weight: 50;
+    }
+</style>
+
+
+<%- include('partials/endblock') %>

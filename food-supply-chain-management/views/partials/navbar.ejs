@@ -1,0 +1,82 @@
+
+<div class=" container position-sticky z-index-sticky top-0"><div class="row"><div class="col-12"></div>
+<nav class="bd  navbar navbar-expand-lg  blur border-radius-xl top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+    <div class="container-fluid px-0">
+      <a class="navbar-brand font-weight-bolder ms-sm-3" href="/" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" >
+      Dashboard
+      </a>
+      <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon mt-2">
+          <span class="navbar-toggler-bar bar1"></span>
+          <span class="navbar-toggler-bar bar2"></span>
+          <span class="navbar-toggler-bar bar3"></span>
+        </span>
+      </button>
+      <div class="collapse navbar-collapse pt-3 pb-2 py-lg-0 w-100" id="navigation">
+        <ul class="navbar-nav navbar-nav-hover ms-auto">
+          <li class="nav-item dropdown dropdown-hover mx-2">
+            <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" href="/dashboard"  >
+                Dashboard
+            </a>
+          </li>
+          <li class="nav-item dropdown dropdown-hover mx-2">
+            <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" href="/insights/insight" >
+                Daily insights
+            </a>
+          </li>
+          <li class="nav-item dropdown dropdown-hover mx-2">
+            <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" href="/trade/getTrade" >
+                Open Trade
+            </a>
+          </li>
+          <li class="nav-item dropdown dropdown-hover mx-2">
+            <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" href="/requests/myrequests" >
+                My Requests
+            </a>
+          </li>
+          <li class="nav-item dropdown dropdown-hover mx-2">
+            <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" href="/distribute/distribute" >
+                Distributions
+            </a>
+          </li>
+          <li class="nav-item dropdown dropdown-hover mx-2">
+            <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" href="/transport/book">
+                Book Transport
+            </a>
+          </li>
+          
+
+        </ul>
+
+        <div class="dropdown margin-top">
+          <button class="btn  bg-gradient-info dropdown-toggle" type="button" style="text-transform: lowercase;" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            <%= user.email %>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item logout" href="/users/getEditProfile">Profile</a> </li>
+            <li><a class="dropdown-item logout" href="/users/logout">Logout</a> </li>
+           
+          </ul>
+        </div>
+          
+      </div>
+    </div>
+  </nav>
+
+  <style>
+    .logout{
+      color: black;
+    }
+    .bd{
+      border: 0.5px solid black;
+      
+    }
+    .margin-top{
+      margin-top: 10px;
+    }
+    nav {
+      position: fixed;
+      z-index: 1000;
+    }
+    
+  </style>

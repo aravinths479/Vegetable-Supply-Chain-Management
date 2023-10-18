@@ -1,0 +1,76 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+
+<br><br><br><br><br><br>
+<div class="container">
+    <h1>Daily Forecast</h1>
+    <br><br><br>
+    <div style="width: 100%; margin: 0 auto;">
+        <!-- Create a canvas element to render the chart -->
+        <canvas id="tomatoPriceChart" height="400"></canvas>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+<script>
+    // Fetch tomato data from the API endpoint
+    fetch('http://127.0.0.1:3000/tomatoes/tomato')
+        .then(response => response.json())
+        .then(tomatoData => {
+            // Extract dates and prices from the fetched data
+            const dates = tomatoData.map(item => moment(item.date).format('DD-MM-YYYY'));
+            const prices = tomatoData.map(item => item.price);
+
+            // Get the canvas element
+            const ctx = document.getElementById('tomatoPriceChart').getContext('2d');
+
+            // Create a new chart using Chart.js
+            const tomatoPriceChart = new Chart(ctx, {
+                type: 'line', // You can change the chart type to bar, pie, etc.
+                data: {
+                    labels: dates, // X-axis labels (dates)
+                    datasets: [
+                        {
+                            label: 'Tomato Prices',
+                            data: prices, // Y-axis data (prices)
+                            borderColor: 'rgb(255, 0, 0)', // Line color
+                            borderWidth: 3, // Line width
+                            fill: false, // Don't fill the area under the line
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            title: {
+                                display: true,
+                                text: 'Price (INR)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Date'
+                            }
+                        }
+                    }
+                }
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+</script>
+
+<style>
+    h1 {
+        font-size: 40px;
+        font-weight: 50;
+    }
+</style>
+
+<%- include('partials/endblock') %>

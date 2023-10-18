@@ -1,0 +1,47 @@
+<%- include('partials/header') %> 
+<%- include('partials/navbar') %>
+
+<br><br><br><br><br>
+
+
+<div class="container">
+    <h1>Tomato Allocations</h1>
+    <br><br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Seller User ID</th>
+                <th>Seller Name</th>
+                <th>Seller Location</th>
+                <th>Buyer User ID</th>
+                <th>Buyer Name</th>
+                <th>Buyer Location</th>
+                <th>Allocated Tomatoes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% tomatoAllocations.forEach((allocation) => { %>
+                <tr>
+                    <td><%= allocation.sellerUserId %></td>
+                    <td><%= allocation.sellerName %></td>
+                    <td><%= allocation.sellerLocation %></td>
+                    <td><%= allocation.buyerUserId %></td>
+                    <td><%= allocation.buyerName %></td>
+                    <td><%= allocation.buyerLocation %></td>
+                    <td><%= allocation.allocatedTomatoes %> Kg</td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</div>
+
+
+<style>
+    h1 {
+        font-size: 40px;
+        font-weight: 50;
+    }
+</style>
+
+
+<%- include('partials/endblock') %>

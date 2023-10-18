@@ -1,0 +1,45 @@
+<%- include('partials/header') %> 
+<%- include('partials/navbar') %>
+
+<br><br><br><br><br>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Edit Profile</h2>
+            <form action="/users/postEditProfile" method="POST">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <strong>Name:</strong>
+                        <input class="form-control" type="text" name="name" value="<%= data.name %>" required>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Contact:</strong>
+                        <input class="form-control" type="text" name="contact" value="<%= data.contact %>" required>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Email:</strong>
+                        <input class="form-control" type="email" name="email" value="<%= data.email %>" required>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Location:</strong>
+                        <input class="form-control" type="text" name="location" value="<%= data.location %>" required>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Role:</strong>
+                        <select name="role">
+                            <option value="Buyer" <%= data.role === 'Buyer' ? 'selected' : '' %>>Buyer</option>
+                            <option value="Seller" <%= data.role === 'Seller' ? 'selected' : '' %>>Seller</option>
+                            <option value="Both" <%= data.role === 'Both' ? 'selected' : '' %>>Both</option>
+                        </select>
+                    </li>
+                    <li class="list-group-item">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/endblock') %>

@@ -1,0 +1,62 @@
+<%- include('partials/header') %> 
+<%- include('partials/navbar') %>
+
+
+<!-- Include moment.js (if you want to use it for date formatting) -->
+
+
+
+
+<br><br><br><br><br>
+
+
+<div class="container">
+    
+
+<h1>Transport Records</h1>
+
+<br>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Source Location</th>
+                <th>Destination Location</th>
+                <th>Tomato Quantity (kgs)</th>
+                <th>Transporter</th>
+                <th>Booked By User</th>
+                <th>Departure Time</th>
+                <th>Arrival Time</th>
+                <th>Status</th>
+              
+            </tr>
+        </thead>
+        <tbody>
+            <% transports.forEach((transport) => { %>
+                <tr>
+                    <td><%= transport.sourceLocation %></td>
+                    <td><%= transport.destinationLocation %></td>
+                    <td><%= transport.tomatoQuantity %></td>
+                    <td><%= transport.transporterId.name %></td>
+                    <td><%= transport.bookedByUserId._id %></td>
+                    <td><%= transport.departureTime.toLocaleDateString() %></td>
+                    <td><%= transport.arrivalTime.toLocaleDateString() %></td>
+                    <td><%= transport.status %></td>
+                                   </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    </div>
+</div>
+
+<style>
+    h1 {
+        font-size: 40px;
+        font-weight: 50;
+    }
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script> 
+
+<%- include('partials/endblock') %> 

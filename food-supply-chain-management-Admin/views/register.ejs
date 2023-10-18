@@ -1,0 +1,76 @@
+<%- include('partials/header') %>
+<%- include('partials/welcomenav') %>
+
+  <!-- End Navbar -->
+  <div class="page-header align-items-start min-vh-100" style="background-color: black;" loading="lazy">
+    <span class="mask bg-gradient-dark opacity-6"></span>
+    <div class="container my-auto">
+      <div class="row">
+        <div class="col-lg-4 col-md-8 col-12 mx-auto">
+          <div class="card z-index-0 fadeIn3 fadeInBottom">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+                <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Register Account</h4>
+                <div class="row mt-3">
+                  <div class="col-2 text-center ms-auto">
+                    <a class="btn btn-link px-3" href="#">
+                      
+                    </a>
+                  </div>
+                  <div class="col-2 text-center px-1">
+                    <a class="btn btn-link px-3" href="/auth/google">
+                      <i class="fa fa-google text-white text-lg"></i>
+                    </a>
+                  </div>
+                  <div class="col-2 text-center me-auto">
+                    <a class="btn btn-link px-3" href="#">
+                      
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+
+
+              <%- include ("./partials/messages"); %>
+                
+              <form role="form" class="text-start"   action="/users/register" method="POST">
+                <div class="input-group input-group-outline my-3">
+                  <label class="form-label">Name</label>
+                  <input type="text" name="name" class="form-control" value="<%= typeof name != 'undefined' ? name : '' %>">
+                </div>
+                <div class="input-group input-group-outline my-3">
+                  <label class="form-label">Email</label>
+                  <input type="email" name="email" class="form-control" value="<%= typeof email != 'undefined' ? email : '' %>">
+                </div>
+                <div class="input-group input-group-outline mb-3">
+                  <label class="form-label">Password</label>
+                  <input type="password" name="password" class="form-control"  value="<%= typeof password != 'undefined' ? password : '' %>">
+                </div>
+                <div class="input-group input-group-outline mb-3">
+                  <label class="form-label">Confirm Password</label>
+                  <input type="password" name="password2" class="form-control" value="<%= typeof password2 != 'undefined' ? password2 : '' %>">
+                </div>
+               
+                <div class="text-center">
+                  <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Register</button>
+                </div>
+                <a href="/users/login">
+                <p class="mt-4 text-sm text-center">
+                   Have an account? Login here
+                </p>
+              </a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+ 
+
+
+
+  <%- include('partials/endblock') %>
