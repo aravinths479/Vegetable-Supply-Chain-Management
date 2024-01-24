@@ -36,7 +36,7 @@ The **Vegetable Distribution Management System** is a comprehensive solution des
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/yourusername/VegetableDistributionManagementSystem.git
+   git clone https://github.com/aravinths479/Vegetable-Supply-Chain-Managemen.git
    cd VegetableDistributionManagementSystem
    ```
 
